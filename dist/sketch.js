@@ -66,6 +66,6 @@ function setup() {
   drawLine();
 
   createP();
-  const button = createButton("Click to generate");
+  const button = createButton("Next step");
   button.mousePressed(generate);
 }
