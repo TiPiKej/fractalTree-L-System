@@ -1,14 +1,16 @@
-const angleCount = 30;
-
-let len = 100;
+let tree;
 
 function setup() {
   createCanvas(600, 600);
 
-  angleMode(DEGREES);
-  drawLine();
+  tree = new Tree();
 
-  createP();
-  const button = createButton("Next step");
-  button.mousePressed(generate);
+  angleMode(DEGREES);
+  tree.drawLine();
+
+  const generate = select("#next");
+  generate.mousePressed(() => tree.generate());
+
+  const reset = select("#reset");
+  reset.mousePressed(() => tree.resetAll());
 }
