@@ -25,25 +25,26 @@ class Tree {
 
     for (let i = 0; i < this.genStr.length; i++) {
       const curChar = this.genStr[i];
+      console.log(this.genStr.length);
 
-      if (!isNaN(parseInt(curChar))) {
-        if (!isNaN(parseInt(this.genStr[i + 1]))) {
-          if (!isNaN(parseInt(this.genStr[i + 2]))) {
-            rotate(
-              parseInt(curChar) * 100 +
-                parseInt(this.genStr[i + 1]) * 10 +
-                parseInt(this.genStr[i + 2])
-            );
-            i += 2;
-            continue;
-          }
-          rotate(parseInt(curChar) * 10 + parseInt(this.genStr[i + 1]));
-          i++;
-          continue;
-        }
-        rotate(parseInt(curChar));
-        continue;
-      }
+      // if (!isNaN(parseInt(curChar))) {
+      //   if (!isNaN(parseInt(this.genStr[i + 1]))) {
+      //     if (!isNaN(parseInt(this.genStr[i + 2]))) {
+      //       rotate(
+      //         parseInt(curChar) * 100 +
+      //           parseInt(this.genStr[i + 1]) * 10 +
+      //           parseInt(this.genStr[i + 2])
+      //       );
+      //       i += 2;
+      //       continue;
+      //     }
+      //     rotate(parseInt(curChar) * 10 + parseInt(this.genStr[i + 1]));
+      //     i++;
+      //     continue;
+      //   }
+      //   rotate(parseInt(curChar));
+      //   continue;
+      // }
 
       switch (curChar.toUpperCase()) {
         case "F":
