@@ -9,10 +9,56 @@
 
   <script src="libs/p5.min.js"></script>
   <script src="libs/p5.dom.min.js"></script>
+  <script src="./RulesList.js"></script>
+  <script src="./tree.js"></script>
   <script src="sketch.js"></script>
+
+  <style>
+    fieldset{
+      width: 300px;
+    }
+  </style>
 </head>
 
 <body>
+
+  <fieldset>
+    <legend>Canvas operation</legend>
+
+    <button id="next">
+      Next step
+    </button>
+
+    <button id="reset">
+      Reset
+    </button>
+  </fieldset>
+
+  <fieldset>
+    <legend>Data</legend>
+
+    Starting length:
+    <input type="number" id="stLen" value="100" min="0">
+    <br>
+
+    Cutting length:
+    <input type="number" id="cutLen" value="0.56" step="0.01" max="1" min="0">
+    <br>
+
+    Angle Count:
+    <input type="number" id="angleCount" value="30" min="0" max="180">
+    <br>
+
+    Axiom:
+    <input type="text" id="axiom" value="F">
+    <br>
+
+    Rules:
+    <button id="rAdd">Add at the least</button>
+    <button id="rRem">Remove last one</button>
+    <ol id="c-rules"></ol>
+
+  </fieldset>
 
 </body>
 
