@@ -2,20 +2,29 @@ class Tree {
   constructor() {
     this.resetAll();
 
-    this.rules = [];
-    this.rules[0] = {
-      a: "F",
-      b: "FF+[+F-F-F]-[-F+F+F]"
-    };
-
     // this.generate = this.generate.bind(this);
+    // this.takeRules = this.takeRules.bind(this);
+  }
+
+  takeRules() {
+    const rules = document.querySelector("#c-rules");
+
+    rules.childNodes.forEach(li => {
+      const a = li.childNodes[0].childNodes[1].value;
+      const b = li.childNodes[1].childNodes[1].value;
+
+      this.rules.push({
+        a,
+        b
+      });
+    });
   }
 
   drawLine() {
     this.resetDraw();
 
     Array.from(this.genStr).forEach(curChar => {
-      switch (curChar) {
+      switch (curChar.toUpperCase()) {
         case "F":
           line(0, 0, 0, -this.len);
           translate(0, -this.len);
@@ -42,7 +51,7 @@ class Tree {
       let find = false;
 
       Array.from(this.rules).some(el => {
-        if (el.a === current && !find) {
+        if (el.a === current.toUpperCase() && !find) {
           find = true;
           newString += el.b;
           return el.a === current;
@@ -57,13 +66,21 @@ class Tree {
   }
 
   resetAll() {
-    this.cuttingLength = 0.56;
+    this.rules = [];
+    this.takeRules();
 
-    this.axiom = "F";
+    const cuttingLength = select("#cutLen").value();
+    const axiom = select("#axiom").value();
+    const angleCount = select("#angleCount").value();
+    const startLength = select("#stLen").value();
+
+    this.cuttingLength = cuttingLength ? cuttingLength : 0.56;
+
+    this.axiom = axiom ? axiom : "F";
     this.genStr = this.axiom;
 
-    this.len = 100;
-    this.angleCount = 30;
+    this.len = startLength ? startLength : 100;
+    this.angleCount = angleCount ? angleCount : 30;
 
     this.resetDraw();
     this.drawLine();
