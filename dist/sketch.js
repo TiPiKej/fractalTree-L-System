@@ -9,7 +9,7 @@ function setup() {
   // add default rules
   rulesList.add({
     a: "F",
-    b: "FF+[+F-F-F]-[-F+F+F]"
+    b: "F+[+F-F-F]-[-F+F+F]"
   });
 
   tree = new Tree();
